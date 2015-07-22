@@ -1,0 +1,55 @@
+@(message: String)
+@(users: List[User])(implicit lang: Lang)
+
+@main("application.name") {
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<div class="jumbotron">
+  <h1>SUCCESSFULLY REGISTERED!!</h1>
+  </div>
+ <h4>WELLCOME</h4>
+ <h2>@message</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Short Id</th>
+        <th>Manager Short Id</th>
+      </tr>
+    </thead>
+   @for(user <- users) {
+      <tr>
+        <td>@user.firstname</td>
+        <td>@user.lastname</td>
+     <tbody>
+     <td>@user.email</td>
+        <td>@user.shortId</td>
+        <td>@user.managerShortId</td>
+      </tr>
+	}
+    </tbody>
+  </table>
+
+
+
+
+</div>
+
+</body>
+</html>
+}
